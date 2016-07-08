@@ -33,7 +33,7 @@
 
 //$("#header"). prepend(bio.name);
 //$("#header"). append(bio.role);
-//$("#topContacts"). append(bio.contact);
+//$("#lets-connect"). append(bio.contact);
 //$("#header"). prepend(bio.picture);
 //$("#header"). append(bio.welcome);
 //$("#main"). append(bio.skills);
@@ -140,68 +140,104 @@ var projects = {
 	]
 }
 
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+$("#header"). prepend(formattedRole);
 var headerName = HTMLheaderName.replace("%data%", bio.name);
-$("#header"). append(headerName);
+$("#header"). prepend(headerName);
 
-if (bio.skills.length > 0) {
+		
+
+bio.display = function() {
+
+
+	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#lets-connect"). append(mobile);
+
+	var email = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#lets-connect"). append(email);
+
+	var github = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#lets-connect"). append(github);
+
+	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#lets-connect"). append(twitter);
+
+	var location = HTMLlocation.replace("%data%", bio.contacts.location);
+	$("#lets-connect"). append(location);
+
+	var welcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage)
+	
 	$("#header"). append(HTMLskillsStart);
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills"). append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills"). append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills"). append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-	$("#skills"). append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
-	$("#skills"). append(formattedSkill);
-}
 
-function displayWork() {
-	for (job in work.jobs) {
-		$("#workExperience"). append(HTMLworkStart);
+	for (skill in bio.skills) {
+	
+		var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 
-		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-		$(".work-entry:last"). append(formattedEmployerTitle);
-
-		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-		$(".work-entry:last"). append(formattedDates);
-
-		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-		$(".work-entry:last"). append(formattedLocation);
-
-		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description)
-		$(".work-entry:last"). append(formattedDescription);
+		$("#skills:last"). append(formattedSkill);
 	}
 }
 
-displayWork();
+$("#main"). append(bio.display);
 
-projects.display = function() {
-	for (project in projects.projects) {
-		$("#projects"). append(HTMLprojectStart);
+//if (bio.skills.length > 0) {
+//	$("#header"). append(HTMLskillsStart);
+//	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+//	$("#skills"). append(formattedSkill);
+//	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+//	$("#skills"). append(formattedSkill);
+//	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+//	$("#skills"). append(formattedSkill);
+//	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+//	$("#skills"). append(formattedSkill);
+//	formattedSkill = HTMLskills.replace("%data%", bio.skills[4]);
+//	$("#skills"). append(formattedSkill);
+//}
 
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		$(".project-entry:last"). append(formattedTitle);
+//function displayWork() {
+//	for (job in work.jobs) {
+//		$("#workExperience"). append(HTMLworkStart);
+//
+//		var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+//		var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+//		var formattedEmployerTitle = formattedEmployer + formattedTitle;
+//
+//		$(".work-entry:last"). append(formattedEmployerTitle);
+//
+//		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+//		$(".work-entry:last"). append(formattedDates);
+//
+//		var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+//		$(".work-entry:last"). append(formattedLocation);
+//
+//		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description)
+//		$(".work-entry:last"). append(formattedDescription);
+//	}
+//}
 
-		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		$(".project-entry:last"). append(formattedDates);
+//displayWork();
 
-		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		$(".project-entry:last"). append(formattedDescription);
+//projects.display = function() {
+//	for (project in projects.projects) {
+//		$("#projects"). append(HTMLprojectStart);
+//
+//		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+//		$(".project-entry:last"). append(formattedTitle);
 
-		if (projects.projects[project].images.length > 0) {
-			for (image in projects.projects[project].images){
-				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-				$(".project-entry:last"). append(formattedImage);
-			}
-		}
-	}
-}
+//		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+//		$(".project-entry:last"). append(formattedDates);
 
-$("#main"). append(projects.display);
+//		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+//		$(".project-entry:last"). append(formattedDescription);
+
+//		if (projects.projects[project].images.length > 0) {
+//			for (image in projects.projects[project].images){
+//				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+//				$(".project-entry:last"). append(formattedImage);
+//			}
+//		}
+//	}
+//}
+
+//$("#main"). append(projects.display);
 
 $("#mapDiv"). append(googleMap);
