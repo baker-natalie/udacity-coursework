@@ -129,13 +129,13 @@ var projects = {
 			"title" : "Portfolio Project",
 			"dates" : "6/2016",
 			"description" : "An online portfolio to showcase my front-end design work",
-			"images" : ["images/glasses-logo.png"]
+			"images" : ["images/portfolio-image.jpg"]
 		},
 		{
-			"title" : "funVector",
-			"dates" : "5/2016 - present",
+			"title" : "Animal Trading Card",
+			"dates" : "6/2016",
 			"description" : "A collection of vector images",
-			"images" : ["images/funvector-logo.png"]
+			"images" : ["animal-card-image.jpg"]
 		}
 	]
 }
