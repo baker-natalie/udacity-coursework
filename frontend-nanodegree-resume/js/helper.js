@@ -15,13 +15,13 @@ replace the %data% placeholder text you see in them.
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
-var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><span class="white-text">%data%</span></li>';
-var HTMLmobile = '<li class="flex-item" id="content-text"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-var HTMLemail = '<li class="flex-item" id="content-text"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-var HTMLtwitter = '<li class="flex-item" id="content-text"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-var HTMLgithub = '<li class="flex-item" id="content-text"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-var HTMLblog = '<li class="flex-item" id="content-text"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-var HTMLlocation = '<li class="flex-item" id="content-text"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
+var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><a href="#" class="white-text">%data%</a></li>';
+var HTMLmobile = '<li class="flex-item" id="content-text"><span class="orange-text">mobile</span><a href="#" class="white-text">%data%</a></li>';
+var HTMLemail = '<li class="flex-item" id="content-text"><span class="orange-text">email</span><a href="mailto:#" class="white-text">%data%</a></li>';
+var HTMLtwitter = '<li class="flex-item" id="content-text"><span class="orange-text">twitter</span><a href="#" class="white-text">%data%</a></li>';
+var HTMLgithub = '<li class="flex-item" id="content-text"><span class="orange-text">github</span><a href="#" class="white-text">%data%</a></li>';
+var HTMLblog = '<li class="flex-item" id="content-text"><span class="orange-text">blog</span><a href="#" class="white-text">%data%</a></li>';
+var HTMLlocation = '<li class="flex-item" id="content-text"><span class="orange-text">location</span><a href="#" class="white-text">%data%</a></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
 var HTMLwelcomeMsg = '<span class="welcome-message" id="content-text">%data%</span>';
@@ -49,14 +49,15 @@ var HTMLschoolDates = '<div class="date-text" id="content-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text" id="content-text">%data%</div>';
 var HTMLschoolMajor = '<em><br>Major: %data%</em>';
 
-var HTMLonlineClasses = '<h3>Online Classes</h3>';
-var HTMLonlineTitle = '<a href="#">%data%';
+var HTMLclassesStart = '<div class="class-entry"></div>';
+var HTMLonlineTitle = '<a href="#" id="content-text">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text" id="content-text">%data%</div>';
 var HTMLonlineURL = '<br><a href="#" id="content-text">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
 var googleMap = '<div id="map"></div>';
+var twitterFeed = '<div id="twitter"><a class="twitter-timeline" data-height="400" data-theme="light" data-link-color="#FAB81E" href="https://twitter.com/ohcodinglady">Tweets by ohcodinglady</a></div>'
 
 
 /*
@@ -251,3 +252,4 @@ window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
 map.fitBounds(mapBounds);
 });
+
