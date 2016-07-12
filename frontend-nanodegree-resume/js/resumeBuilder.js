@@ -181,9 +181,9 @@ bio.display = function() {
 $("#main"). append(bio.display);
 
 projects.display = function() {
-	$("#projects"). append(HTMLprojectStart);
-
+	
 	for (var i = 0; i < projects.projects.length; i++) {
+		$("#projects"). append(HTMLprojectStart);
 		$(".project-entry:last"). append(HTMLprojectTitle.replace("%data%", projects.projects[i].title));
 		$(".project-entry:last"). append(HTMLprojectDates.replace("%data%", projects.projects[i].dates));
 		$(".project-entry:last"). append(HTMLprojectDescription.replace("%data%", projects.projects[i].description));
@@ -209,11 +209,12 @@ $("#main"). append(education.displaySchools);
 
 education.displayOnlineCourses = function() {
 	$("#education"). append(HTMLonlineClasses);
+	$("#education"). append(HTMLschoolStart);
 	for (var i =0; i < education.onlineCourses.length; i++) {
-		$(".education-entry"). append(HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title));
-		$(".education-entry"). append(HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school));
-		$(".education-entry"). append(HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates));
-		$(".education-entry"). append(HTMLonlineURL.replace("%data%", education.onlineCourses[i].url));
+		$(".education-entry:last"). append(HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title));
+		$(".education-entry:last"). append(HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school));
+		$(".education-entry:last"). append(HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates));
+		$(".education-entry:last"). append(HTMLonlineURL.replace("%data%", education.onlineCourses[i].url));
 	}
 }
 
