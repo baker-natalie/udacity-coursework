@@ -75,7 +75,9 @@ var bio = {
 		"mobile" : "713-245-0099",
 		"email" : "bakernataliea@gmail.com",
 		"github" : "baker-natalie",
+		"githubLink" : "https://github.com/baker-natalie",
 		"twitter" : "@ohcodinglady",
+		"twitterLink" : "https://twitter.com/ohcodinglady",
 		"location" : "Houston, TX"
 	},
 	"welcomeMessage" : "Welcome to my resume page!",
@@ -151,19 +153,19 @@ $("#header"). append(bioPic);
 bio.display = function() {
 
 	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#lets-connect"). append(mobile);
+	$("#footerContacts"). append(mobile.replace("#", bio.contacts.mobile));
 
 	var email = HTMLemail.replace("%data%", bio.contacts.email);
-	$("#lets-connect"). append(email);
+	$("#footerContacts"). append(email.replace("#", bio.contacts.email));
 
 	var github = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#lets-connect"). append(github);
+	$("#footerContacts"). append(github.replace("#", bio.contacts.githubLink));
 
 	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	$("#lets-connect"). append(twitter);
+	$("#footerContacts"). append(twitter.replace("#", bio.contacts.twitterLink));
 
 	var location = HTMLlocation.replace("%data%", bio.contacts.location);
-	$("#lets-connect"). append(location);
+	$("#footerContacts"). append(location);
 
 	$("#header"). append(HTMLskillsStart);
 	
@@ -199,7 +201,9 @@ $("#main"). append(projects.display);
 education.displaySchools = function() {
 	$("#education"). append(HTMLschoolStart);
 	for (var i = 0; i < education.schools.length; i++) {
-		$(".education-entry"). append(HTMLschoolName.replace("%data%", education.schools[i].name));
+
+		var schoolNameDegree = HTMLschoolName.replace("%data%", education.schools[i].name) + HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+		$(".education-entry"). append(schoolNameDegree.replace("#", education.schools[i].url));
 		$(".education-entry"). append(HTMLschoolDates.replace("%data%", education.schools[i].dates));
 		$(".education-entry"). append(HTMLschoolLocation.replace("%data%", education.schools[i].location));
 	}
@@ -208,13 +212,12 @@ education.displaySchools = function() {
 $("#main"). append(education.displaySchools);
 
 education.displayOnlineCourses = function() {
-	$("#education"). append(HTMLonlineClasses);
-	$("#education"). append(HTMLschoolStart);
+	$("#onlineClasses"). append(HTMLclassesStart);
 	for (var i =0; i < education.onlineCourses.length; i++) {
-		$(".education-entry:last"). append(HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title));
-		$(".education-entry:last"). append(HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school));
-		$(".education-entry:last"). append(HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates));
-		$(".education-entry:last"). append(HTMLonlineURL.replace("%data%", education.onlineCourses[i].url));
+		var classTitleSchool = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title) + HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+		$(".class-entry"). append(classTitleSchool.replace("#", education.onlineCourses[i].url));
+
+		$(".class-entry"). append(HTMLonlineDates.replace("%data%", education.onlineCourses[i].dates));
 	}
 }
 
@@ -305,3 +308,4 @@ $("#main"). append(work.display);
 //$("#main"). append(projects.display);
 
 $("#mapDiv"). append(googleMap);
+$("#twitterDiv"). append(twitterFeed);

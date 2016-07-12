@@ -73,10 +73,18 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     </div>
 
     <div id="education" class="gray">
-      <h2>Education</h2>
+      <h2>College</h2>
     </div>
-    <div id="mapDiv">
-      <h2>Where I've Lived and Worked</h2>
+    <div id="onlineClasses" class="gray">
+      <h2>Online Classes</h2>
+    </div>
+    <div class="interactive">
+      <div id="mapDiv">
+        <h2>Where I've Lived and Worked</h2>
+      </div>
+      <div id="twitterDiv">
+        <h2>Get to Know Me</h2>
+      </div>
     </div>
     <div id="lets-connect" class="dark-gray">
       <h2 class="orange center-text">Let's Connect</h2>
@@ -131,11 +139,17 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     if(document.getElementsByClassName('education-entry').length === 0) {
       document.getElementById('education').style.display = 'none';
     }
+    if(document.getElementsByClassName('class-entry').length === 0) {
+      document.getElementById('onlineClasses').style.display = 'none';
+    }
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementById('lets-connect').style.display = 'none';
     }
     if(document.getElementById('map') === null) {
       document.getElementById('mapDiv').style.display = 'none';
+    }
+    if(document.getElementById('twitter') === null) {
+      document.getElementById('twitterDiv').style.display = 'none';
     }
   </script>
   </div>
