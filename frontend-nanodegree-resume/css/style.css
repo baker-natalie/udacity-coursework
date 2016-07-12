@@ -201,6 +201,9 @@ span {
   background-color: #fff;
 }
 
+#mapDiv {
+  max-width: 50%;
+}
 
 
 #content-text {
