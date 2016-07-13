@@ -75,12 +75,11 @@ var bio = {
 		"mobile" : "713-245-0099",
 		"email" : "bakernataliea@gmail.com",
 		"github" : "baker-natalie",
-		"githubLink" : "https://github.com/baker-natalie",
-		"twitter" : "@ohcodinglady",
-		"twitterLink" : "https://twitter.com/ohcodinglady",
+		"twitter" : "ohcodinglady",
+		"linkedin" : "natalie-baker",
 		"location" : "Houston, TX"
 	},
-	"welcomeMessage" : "Welcome to my resume page!",
+	"welcomeMessage" : "Welcome to my resume page! This is my first javaScript project- an online resume that can be easily customized to display my unique skills and talents. Take a look around and contact me if you'd like to know more about my work!",
 	"skills" : ["Awesomeness", "HTML", "CSS", "JavaScript", "jQuery"],
 	"biopic" : "images/profile-pic.jpg"
 }
@@ -109,18 +108,18 @@ var education = {
 var work = {
 	"jobs" : [
 		{
-			"employer" : "Self",
-			"title" : "Mom",
+			"employer" : "Self-Employed",
+			"title" : "Freelance Web Developer",
 			"location" : "Houston, TX",
-			"dates" : "01/2009 - present",
-			"description" : "Mom it all up"
+			"dates" : "05/2016 - present",
+			"description" : "I design, develop, and deploy beautiful, functional websites using HTML, CSS, and JavaScript."
 		},
 		{
 			"employer" : "Taco Mama",
 			"title" : "Lead Server/Caterer",
 			"location" : "Huntsville, AL",
 			"dates" : "10/2014 - 6/2015",
-			"description" : "sling tacos"
+			"description" : "I worked with the service and kitchen teams to deliver a delightful and delicious experience for every guest."
 		}
 	]
 }
@@ -130,14 +129,14 @@ var projects = {
 		{
 			"title" : "Portfolio Project",
 			"dates" : "6/2016",
-			"description" : "An online portfolio to showcase my front-end design work",
+			"description" : "An online portfolio to showcase my front-end design work. The final project for Intro to HTML and CSS in my Udacity nanodegree. This project required use of HTML, CSS, and a CSS framework- I used Bootstrap!",
 			"images" : ["images/portfolio-image.jpg"]
 		},
 		{
 			"title" : "Animal Trading Card",
 			"dates" : "6/2016",
-			"description" : "A collection of vector images",
-			"images" : ["animal-card-image.jpg"]
+			"description" : "My first CSS project. This project required the use of HTML and CSS to replicate and customize an animal trading card.",
+			"images" : ["images/animal-card-image.jpg"]
 		}
 	]
 }
@@ -152,20 +151,10 @@ $("#header"). append(bioPic);
 
 bio.display = function() {
 
-	var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#footerContacts"). append(mobile.replace("#", bio.contacts.mobile));
-
+	$("#topContacts"). append(HTMLlocation.replace("%data%", bio.contacts.location));
+	$("#topContacts"). append(HTMLmobile.replace("%data%", bio.contacts.mobile));
 	var email = HTMLemail.replace("%data%", bio.contacts.email);
-	$("#footerContacts"). append(email.replace("#", bio.contacts.email));
-
-	var github = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#footerContacts"). append(github.replace("#", bio.contacts.githubLink));
-
-	var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	$("#footerContacts"). append(twitter.replace("#", bio.contacts.twitterLink));
-
-	var location = HTMLlocation.replace("%data%", bio.contacts.location);
-	$("#footerContacts"). append(location);
+	$("#topContacts"). append(email.replace("#", bio.contacts.email));
 
 	$("#header"). append(HTMLskillsStart);
 	
@@ -177,6 +166,10 @@ bio.display = function() {
 
 	var welcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage)
 	$("#header"). append(welcomeMessage);
+
+	$("#footerContacts"). append(HTMLtwitter.replace("#", bio.contacts.twitter));
+	$("#footerContacts"). append(HTMLgitHub.replace("#", bio.contacts.github));
+	$("#footerContacts"). append(HTMLlinkedIn.replace("#", bio.contacts.linkedin));
 	
 }
 
@@ -189,10 +182,13 @@ projects.display = function() {
 		$(".project-entry:last"). append(HTMLprojectTitle.replace("%data%", projects.projects[i].title));
 		$(".project-entry:last"). append(HTMLprojectDates.replace("%data%", projects.projects[i].dates));
 		$(".project-entry:last"). append(HTMLprojectDescription.replace("%data%", projects.projects[i].description));
+		$(".project-entry:last"). append(HTMLprojectImage.replace("%data%", projects.projects[i].images));
 
-		for (var i = 0; i < projects.projects[i].images.length; i++){
-			$(".project-entry:last"). append(HTMLprojectImage.replace("%data%", projects.projects[i].images));
-		}
+//		if (projects.projects[i].images.length > 0) {
+//			for (var img = 0; i < projects.projects[i].images.length; img++){
+//				$(".project-entry:last"). append(HTMLprojectImage.replace("%data%", projects.projects[i].images[img]));
+//			}
+//		}
 	}
 }
 
@@ -206,6 +202,7 @@ education.displaySchools = function() {
 		$(".education-entry"). append(schoolNameDegree.replace("#", education.schools[i].url));
 		$(".education-entry"). append(HTMLschoolDates.replace("%data%", education.schools[i].dates));
 		$(".education-entry"). append(HTMLschoolLocation.replace("%data%", education.schools[i].location));
+		$(".education-entry:last"). append(HTMLschoolMajor.replace("%data%", education.schools[i].majors));
 	}
 }
 
