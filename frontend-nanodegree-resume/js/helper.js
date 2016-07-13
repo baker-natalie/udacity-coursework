@@ -16,15 +16,15 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span class="orange-text">%contact%</span><a href="#" class="white-text">%data%</a></li>';
-var HTMLmobile = '<li class="flex-item" id="content-text"><span class="orange-text">mobile</span><a href="#" class="white-text">%data%</a></li>';
-var HTMLemail = '<li class="flex-item" id="content-text"><span class="orange-text">email</span><a href="mailto:#" class="white-text">%data%</a></li>';
-var HTMLtwitter = '<li class="flex-item" id="content-text"><span class="orange-text">twitter</span><a href="#" class="white-text">%data%</a></li>';
-var HTMLgithub = '<li class="flex-item" id="content-text"><span class="orange-text">github</span><a href="#" class="white-text">%data%</a></li>';
-var HTMLblog = '<li class="flex-item" id="content-text"><span class="orange-text">blog</span><a href="#" class="white-text">%data%</a></li>';
-var HTMLlocation = '<li class="flex-item" id="content-text"><span class="orange-text">location</span><a href="#" class="white-text">%data%</a></li>';
+var HTMLmobile = '<li class="flex-item" id="header-text"><span class="orange-text">mobile</span><a href="#" class="white-text">%data%</a></li>';
+var HTMLemail = '<li class="flex-item" id="header-text"><span class="orange-text">email</span><a href="mailto:#" class="white-text">%data%</a></li>';
+var HTMLtwitter = '<li class="flex-item" id="icon"><a href="https://twitter.com/#"><img src="images/twitter-icon.svg" /></a></li>';
+var HTMLgitHub = '<li class="flex-item" id="icon"><a href="https://github.com/#"><img src="images/github-icon.svg" /></a></li>';
+var HTMLlinkedIn = '<li class="flex-item" id="icon"><a href="https://www.linkedin.com/in/#"><img src="images/linkedin-icon.svg" /></a></li>';
+var HTMLlocation = '<li class="flex-item" id="header-text"><span class="orange-text">location</span><a href="#" class="white-text">%data%</a></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLwelcomeMsg = '<span class="welcome-message" id="content-text">%data%</span>';
+var HTMLwelcomeMsg = '<div id="welcome"><p class="welcome-message" id="header-text">%data%</p></div>';
 
 var HTMLskillsStart = '<h3 id="skills-h3">Skills at a Glance:</h3><ul id="skills" class="flex-box"></ul>';
 var HTMLskills = '<li class="flex-item"><span class="white-text">%data%</span></li>';
@@ -47,7 +47,7 @@ var HTMLschoolName = '<a href="#" id="content-text">%data%';
 var HTMLschoolDegree = ' -- %data%</a>';
 var HTMLschoolDates = '<div class="date-text" id="content-text">%data%</div>';
 var HTMLschoolLocation = '<div class="location-text" id="content-text">%data%</div>';
-var HTMLschoolMajor = '<em><br>Major: %data%</em>';
+var HTMLschoolMajor = '<br><p id="content-text">Major(s): %data%</p>';
 
 var HTMLclassesStart = '<div class="class-entry"></div>';
 var HTMLonlineTitle = '<a href="#" id="content-text">%data%';
