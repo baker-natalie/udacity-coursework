@@ -63,7 +63,7 @@ Enemy.prototype = Object.create(Catalyst.prototype);
 Enemy.prototype.constructor = Enemy;
 Enemy.prototype.update = function(dt) {
 
-	// Loops enemies to keep crossing the board
+    // Loops enemies to keep crossing the board
     if(this.x > canvasX * 5) {
         this.x = canvasX * -1;
         this.y = canvasY * getRandomInt(1, 4) - canvasBottomUnderlay;
@@ -96,13 +96,13 @@ Player.prototype.update = function() {
     }
 
     // If player dies this resets the game ("Lose")
-   /* if (Enemy.x === this.x && Enemy.y === this.y) {
+    /*if (Enemy.x === this.x && Enemy.y === this.y) {
     	this.x = startLocX;
     	this.y = startLocY;
     	this.sprite = playerSprite;
-    }
+    }*/
 
-    if (Enemy.x === this.x && Enemy.y === this.y) {
+    /*if (Enemy.x === this.x && Enemy.y === this.y) {
     	this.alive = false;
     }
 
