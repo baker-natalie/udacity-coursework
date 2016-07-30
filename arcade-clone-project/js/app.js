@@ -43,7 +43,7 @@ Catalyst.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-Catalyst.prototype.updateHitbox = function() {
+Catalyst.prototype.updateLoc = function() {
     this.right = this.x;
     this.left = this.x;
     this.top = this.y;
