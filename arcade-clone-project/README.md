@@ -12,5 +12,8 @@ Use the arrow keys to move the player across the board. Reaching the water is a 
 
 ### References
 
-I referenced the following projects by previous students to help me understand and construct my code.
+I referenced the following project repositories by previous students to help me understand and construct my code.
 
+- [danceoval](https://github.com/danceoval/frogger)
+- [sentry71](https://github.com/Sentry71/arcade)
+- [micyang](https://github.com/micyang/frontend-nanodegree-arcade-game)
