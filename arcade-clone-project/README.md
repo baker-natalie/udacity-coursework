@@ -17,3 +17,4 @@ I referenced the following project repositories by previous students to help me 
 - [danceoval](https://github.com/danceoval/frogger)
 - [sentry71](https://github.com/Sentry71/arcade)
 - [micyang](https://github.com/micyang/frontend-nanodegree-arcade-game)
+- [Math.random() on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random)
