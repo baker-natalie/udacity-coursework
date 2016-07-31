@@ -1,7 +1,7 @@
 /* Welcome! This is the third project for Udacity's Front-End Developer Nanodegree progrom. Create a frogger-style game using Object Oriented JavaScript and HTML5 Canvas. Students are provided with images and a game loop engine, and must build the game from there.
 
 All external sources referenced in code comments are linked in the project README at https://github.com/baker-natalie/udacity-coursework/tree/master/arcade-clone-project */
-// Canvas variables
+// Constant variables
 // -Canvas Grid Unit Size
 // -grid and movement layout by tile size based upon project by github user micyong
 var CANVAS_Y = 83;
@@ -17,7 +17,7 @@ var PLAYER_X_MAX = 4 * CANVAS_X;
 
 // Player Contstants
 // -Player Image
-var SPRITE = 'images/char-boy.png';
+var PLAYER_SPRITE = 'images/char-boy.png';
 // -Player Start Location
 var START_LOC_X = CANVAS_X * 2;
 var START_LOC_Y = CANVAS_Y * 5 - CANVAS_BOTTOM_UNDERLAY;
@@ -50,7 +50,7 @@ Catalyst.prototype.render = function() {
 
 // Player Class
 var Player = function(x, y) {
-    Catalyst.call(this, x, y, SPRITE);
+    Catalyst.call(this, x, y, PLAYER_SPRITE);
 };
 
 Player.prototype = Object.create(Catalyst.prototype);
@@ -68,7 +68,7 @@ Player.prototype.update = function() {
     if (this.y <= CANVAS_TOP_OVERLAY) {
         this.x = START_LOC_X;
         this.y = START_LOC_Y;
-        this.sprite = SPRITE;
+        this.sprite = PLAYER_SPRITE;
     }
 };
 
