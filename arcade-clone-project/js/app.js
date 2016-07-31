@@ -33,7 +33,7 @@ function getRandomInt(min, max) {
 }
 
 // Catalyst Super Class
-var Catalyst = function(x, y, img, boundaryRight, boundaryLeft, boundaryTop, boundaryBottom) {
+var Catalyst = function(x, y, img) {
     this.x = x;
     this.y = y;
     this.sprite = img;
@@ -50,32 +50,9 @@ Catalyst.prototype.updateLoc = function() {
     this.bottom = this.y;
 };
 
-// Enemy Class
-var Enemy = function(x, y) {
-    Catalyst.call(this, x, y, 'images/enemy-bug.png');
-    
-    // Sets a random speed for each enemy generated
-    this.speed = getRandomInt(npcMinSpd, npcMaxSpd);
-};
-
-// Creates an Enemy object as a subclass of Catalyst
-Enemy.prototype = Object.create(Catalyst.prototype);
-Enemy.prototype.constructor = Enemy;
-Enemy.prototype.update = function(dt) {
-
-    // Loops enemies to keep crossing the board
-    if(this.x > canvasX * 5) {
-        this.x = canvasX * -1;
-        this.y = canvasY * getRandomInt(1, 4) - canvasBottomUnderlay;
-        this.speed = getRandomInt(npcMinSpd, npcMaxSpd);
-    }
-    this.x = this.x + this.speed * dt;
-};
-
 // Player Class
 var Player = function(x, y) {
     Catalyst.call(this, x, y, playerSprite);
-    this.alive = true;
 };
 
 Player.prototype = Object.create(Catalyst.prototype);
@@ -94,26 +71,36 @@ Player.prototype.update = function() {
         this.y = startLocY;
         this.sprite = playerSprite;
     }
+};
 
-    // If player dies this resets the game ("Lose")
-    /*if (Enemy.x === this.x && Enemy.y === this.y) {
-    	this.x = startLocX;
-    	this.y = startLocY;
-    	this.sprite = playerSprite;
-    }*/
+// Enemy Class
+var Enemy = function(x, y) {
+    Catalyst.call(this, x, y, 'images/enemy-bug.png');
+    
+    // Sets a random speed for each enemy generated
+    this.speed = getRandomInt(npcMinSpd, npcMaxSpd);
+};
 
-    /*if (Enemy.x === this.x && Enemy.y === this.y) {
-    	this.alive = false;
+// Creates an Enemy object as a subclass of Catalyst
+Enemy.prototype = Object.create(Catalyst.prototype);
+Enemy.prototype.constructor = Enemy;
+Enemy.prototype.update = function(dt) {
+
+	// Loops enemies to keep crossing the board
+    if(this.x > canvasX * 5) {
+        this.x = canvasX * -1;
+        this.y = canvasY * getRandomInt(1, 4) - canvasBottomUnderlay;
+        this.speed = getRandomInt(npcMinSpd, npcMaxSpd);
     }
+    this.x = this.x + this.speed * dt;
 
-    if(this.alive === false) {
-        this.x = startLocX;
-        this.y = startLocY;
-        this.sprite = playerSprite;
-        this.alive = true;
-   
-    }*/
-
+    // Checks to see if player and enemy collide, resets game ('lose')
+    if(player.x >= this.x - 50 && player.x <= this.x + 50){
+        if(player.y >= this.y - 50 && player.y <= this.y + 50){
+            player.x = startLocX;
+            player.y = startLocY;
+        }
+    }
 };
 
 // Game Initialization- calls the functions for Player and Enemy subclasses and instantiates them in the game
