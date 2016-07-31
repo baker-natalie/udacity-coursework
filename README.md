@@ -11,3 +11,4 @@ Projects and coursework from my Udacity Front-End Nanodegree
 
 ### See also
 - [Live Online Resume Project](http://baker-natalie.github.io)
+- [Live Frogger Arcade Clone](http://baker-natalie.github.io/arcade-clone-project)
